@@ -1,0 +1,78 @@
+{
+  "version": "1.0",
+  "defaultSchema": "redis",
+  "schemas": [
+    {
+      "type": "custom",
+      "name": "redis",
+      "factory": "org.apache.calcite.adapter.redis.RedisSchemaFactory",
+      "operand": {
+        "host": "localhost",
+        "port": 6379,
+        "database": 0,
+        "password": ""
+      },
+      "tables": [
+        {
+          "name": "employees",
+          "factory": "org.apache.calcite.adapter.redis.RedisTableFactory",
+          "operand": {
+            "dataFormat": "json",
+            "fields": [
+              {
+                "name": "EMP_NO",
+                "type": "int",
+                "mapping": "EMP_NO"
+              },
+              {
+                "name": "FIRST_NAME",
+                "type": "varchar",
+                "mapping": "FIRST_NAME"
+              },
+              {
+                "name": "LAST_NAME",
+                "type": "varchar",
+                "mapping": "LAST_NAME"
+              },
+              {
+                "name": "SALARY",
+                "type": "decimal",
+                "mapping": "SALARY"
+              },
+              {
+                "name": "BONUS",
+                "type": "int",
+                "mapping": "BONUS"
+              },
+              {
+                "name": "DEPT_NO",
+                "type": "int",
+                "mapping": "DEPT_NO"
+              }
+            ]
+          }
+        },
+
+        {
+          "name": "departments",
+          "factory": "org.apache.calcite.adapter.redis.RedisTableFactory",
+          "operand": {
+            "dataFormat": "csv",
+            "fields": [
+              {
+                "name": "DEPT_NO",
+                "type": "int",
+                "mapping": 0
+              },
+              {
+                "name": "NAME",
+                "type": "varchar",
+                "mapping": 1
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
