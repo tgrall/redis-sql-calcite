@@ -9,7 +9,7 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <version.calcite>1.22.0</version.calcite>
+        <version.calcite>1.26.0</version.calcite>
         <version.jedis>3.3.0</version.jedis>
     </properties>
 
